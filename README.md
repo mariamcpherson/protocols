@@ -27,13 +27,13 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 
 - Download and Install Wireshark on Windows 10 VM
 - Filter Traffic by ICMP Protocol
-- Filter Traffic by SSH Protocol
-- Step 4
+- Filter Traffic by DHCP Protocol
+- Filter Traffic by DSN Protocol
 
 <h2>Actions and Observations</h2>
 
 <p>
-- Step 1: Dowloading and Installing Wireshark
+- Dowloading and Installing Wireshark
 </p>
 <p>
 For this tutorial we are going to use Wireshark, which is a widely used open-source network protocol analyzer and packet capture tool. It is also known as a network sniffer or packet sniffer. Wireshark allows users to capture and inspect network packets in real-time or from saved capture files. It is available for various operating systems, including Windows, macOS, and Linux. 
@@ -70,7 +70,7 @@ We will see all the traffic coming in and out from our virtual machine.
 </p>
 
 <p>
-- Step 2: Filtering Traffic by ICMP Protocol
+- Filtering Traffic by ICMP Protocol
 </p>
 
 <p>
@@ -179,7 +179,7 @@ In the images above we can see that there was no response when our Windows 10 ma
 
 
 <p>
-- Step 3: Filtering Traffic by DHCP Protocol
+- Filtering Traffic by DHCP Protocol
 </p>
 
 <p>
@@ -201,18 +201,53 @@ In PowerShell enter the following command: ipconfig /renew
 </p>
 
 <p>
-<p>
-<p>
-<p>
-
-
-<br />
+<img src="https://github.com/mariamcpherson/protocols/assets/139581822/302392df-281e-496d-88c4-ee3d34a50c1e"/>
+</p>
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+The ipconfig /renew command is used in Windows operating systems to renew the IPv4 address configuration for a network interface. It is a command-line utility that interacts with the Dynamic Host Configuration Protocol (DHCP) server to request a new IP address lease for the network adapter.
 </p>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+The ipconfig /renew command is useful in scenarios where a device is connected to a network with DHCP enabled but is unable to obtain a valid IP address automatically. It can be used to force the renewal of the IP address lease and resolve issues related to IP address conflicts or DHCP lease expirations.
+</p>
+<p>
+Note that ipconfig /renew command is specific to IPv4 addresses. For renewing IPv6 addresses, you would use the ipconfig /renew6 command. 
+</p>
+<br />
+
+
+<p>
+- Filtering Traffic by DSN Protocol
+</p>
+<p>
+<p>
+<p>
+<p>
+<p>
+<p>
+<p>
+<p>
+<p>
+<p>
+<p>
+<p>
+<p>
+<p>
+<p>
+<p>
+<p>
+<p>
+<p>
+<p>
+<p>
+<p>
+<p>
+<p>
+<p>
+<p>
+<p>
+
+
 </p>
 <br />
 
