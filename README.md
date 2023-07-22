@@ -91,9 +91,17 @@ The "ping" command tests the reachability and responsiveness of a remote network
 When you use the ping command, your computer sends out a small packet of data (ICMP Echo Request) to the target host. If the target host is reachable and responsive, it will reply with a corresponding packet (ICMP Echo Reply) back to your computer. The ping command measures the round-trip time it takes for the packet to travel from your computer to the target host and back, giving an indication of the network latency or delay.
 </p>
 <p>
+We'll open Power Shell from the Start Menu of our Windows 10 VM to open the command line, then go to our Azure portal on our local PC, and copy the Private IP Adress of our Windows Server VM. Then, back to our Windows 10 VM, we type "ping" followed by that IP Address.
+</p>
 <p>
+If there are no connectivity issues, or any Firewall blocking traffic, you will get 4 replies from the IP Address, showing that connectivity is established and traffic between the two machines is unhindered.
+</p>
+
 <p>
-<p>
+<img src="https://github.com/mariamcpherson/protocols/assets/139581822/36dcf86b-7300-4fba-9a98-8912a3e0ad13"/>
+</p>
+
+
 <p>
 <p>
 <p>
