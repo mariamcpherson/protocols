@@ -42,9 +42,33 @@ For this tutorial we are going to use Wireshark, which is a widely used open-sou
 Wireshark is a powerful tool used by network administrators, security professionals, and developers for a wide range of purposes, such as network troubleshooting, monitoring network performance, analyzing security incidents, and understanding network behavior. However, it's essential to use Wireshark responsibly, as capturing network traffic may involve legal and privacy considerations.
 </p>
 <p>
+Download and install Wireshark in the Windows 10 VM.
+</p>
+  
 <p>
+<img src="https://github.com/mariamcpherson/protocols/assets/139581822/f14346b0-74a2-4a16-a3de-b3a3a1467f59"/>
+</p>
+
 <p>
+Once Wireshark is installed, select the Ethernet option and then click the blue fin icon at the top left corner to start filtering traffic.
+</p>
+
 <p>
+<img src="https://github.com/mariamcpherson/protocols/assets/139581822/75b6808f-a32f-4dbf-b8e5-20665dc3b79d)"/>
+</p>
+
+<p>
+<img src="https://github.com/mariamcpherson/protocols/assets/139581822/6b0e1b0d-b71d-4bb5-9f52-a5682c63f4e9)"/>
+</p>
+
+<p>
+We will see all the traffic coming in and out from our virtual machine.
+</p>
+
+<p>
+<img src="https://github.com/mariamcpherson/protocols/assets/139581822/819d7906-5cc3-490b-bf20-71b3c9d4735f"/>
+</p>
+
 <p>
 <p>
 <p>
