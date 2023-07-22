@@ -25,7 +25,7 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 
 <h2>High-Level Steps</h2>
 
-- Install Wireshark on Windows 10 VM
+- Download and Install Wireshark on Windows 10 VM
 - Step 2
 - Step 3
 - Step 4
@@ -70,10 +70,39 @@ We will see all the traffic coming in and out from our virtual machine.
 </p>
 
 <p>
+- Step 2:
+</p>
+
+<p>
+We're going to start by filtering traffic by icmp protocol, and in order to see it better on Wireshark, we can type "icmp" on the top search bar of Wireshark.
+</p>
+
+<p>
+<img src="https://github.com/mariamcpherson/protocols/assets/139581822/da438dcd-c808-41ae-83fd-4270495af2f4"/>
+</p>
+
+<p>
+Now, we're going to test the connectivity between our two Azure Virtual Machines by using the "ping" in the command line.
+</p>
+<p>
+The "ping" command tests the reachability and responsiveness of a remote network host (typically a computer or server) over an Internet Protocol (IP) network. 
+</p>
+<p>
+When you use the ping command, your computer sends out a small packet of data (ICMP Echo Request) to the target host. If the target host is reachable and responsive, it will reply with a corresponding packet (ICMP Echo Reply) back to your computer. The ping command measures the round-trip time it takes for the packet to travel from your computer to the target host and back, giving an indication of the network latency or delay.
+</p>
 <p>
 <p>
 <p>
 <p>
+<p>
+<p>
+<p>
+<p>
+<p>
+<p>
+<p>
+<p>
+
 
 
 <br />
