@@ -27,7 +27,7 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 
 - Download and Install Wireshark on Windows 10 VM
 - Filter Traffic by ICMP Protocol
-- Step 3
+- Filter Traffic by SSH Protocol
 - Step 4
 
 <h2>Actions and Observations</h2>
@@ -70,9 +70,18 @@ We will see all the traffic coming in and out from our virtual machine.
 </p>
 
 <p>
-- Step 2:
+- Step 2: Filtering Traffic by ICMP Protocol
 </p>
 
+<p>
+ICMP stands for Internet Control Message Protocol. It is an integral part of the Internet Protocol Suite (TCP/IP) and is used for diagnostic and control purposes in IP networks. ICMP operates at the network layer (Layer 3) of the OSI model and works alongside IP to provide important feedback and error reporting to network devices. ICMP is primarily used to send error messages and perform network testing tasks.
+</p>
+<p>
+ICMP messages are encapsulated within IP packets and are generally used by networking devices like routers and hosts to communicate network status, errors, and troubleshooting information. While ICMP plays a crucial role in network diagnostics and troubleshooting, it can also be misused for certain types of cyber attacks, such as ICMP flood attacks or ping flooding. To mitigate such risks, some network devices and firewalls may limit or control the handling of ICMP traffic.
+</p>
+<p>
+It's worth noting that ICMP is a protocol focused on network control and diagnostic functions and is separate from protocols like TCP and UDP, which are responsible for data transmission and application-layer communications.
+</p><br />
 <p>
 We're going to start by filtering traffic by icmp protocol, and in order to see it better on Wireshark, we can type "icmp" on the top search bar of Wireshark.
 </p>
@@ -166,8 +175,12 @@ Now, let's use the ping command again like we did earlier in this step and see w
 <p>
 In the images above we can see that there was no response when our Windows 10 machine tries to contact our Windows Server machine, as this last one does not allow inbound ICMP traffic anymore.
 </p>
+
+
+
 <p>
-<p>
+- Step 3:
+</p>
 <p>
 <p>
 <p>
