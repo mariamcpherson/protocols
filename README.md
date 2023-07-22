@@ -219,24 +219,40 @@ Note that ipconfig /renew command is specific to IPv4 addresses. For renewing IP
 <p>
 - Filtering Traffic by DSN Protocol
 </p>
+
 <p>
+DNS stands for Domain Name System, and it is a fundamental protocol used on the internet to translate human-readable domain names (such as www.example.com) into IP addresses (such as 203.0.113.42) that computers and networking devices use to locate resources on the internet.
+</p>
 <p>
+The DNS protocol serves as a distributed and hierarchical naming system, allowing users to access websites and other online services without needing to remember and use the numeric IP addresses of the servers hosting those resources.
+</p>
+
 <p>
+In this tutorial, a DNS server is already integrated with Active Directory and it was automatically installed in the Windows Server VM. 
+</p>
+
 <p>
+Since this tutorial is picking up where the previous sections left, we have already configured the DNS settings of our Windows 10 VM to be set as the Private IP Address of the Server machine, which made this Server the Domain Controller of the Windows 10 machine, that is, its DSN server. 
+</p>
+
 <p>
+In this context, we will be performing the following activities and observing the following:
+</p>
+
 <p>
+- Inspect DNS A-records on the server (hostname to IP Address mappings)
+</p>
 <p>
+- Create some of our own A-records on the server and observe them from the Client machine
+</p>
 <p>
+- Delete records from server and inspect/clear Client DNS cache
+</p>
 <p>
+- Touch on CNAME records (mapping one name to another)
+</p>
 <p>
-<p>
-<p>
-<p>
-<p>
-<p>
-<p>
-<p>
-<p>
+- Discuss Root Hints
 <p>
 <p>
 <p>
