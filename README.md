@@ -33,7 +33,7 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 <h2>Actions and Observations</h2>
 
 <p>
-- Step 1: 
+- Step 1: Dowloading and Installing Wireshark
 </p>
 <p>
 For this tutorial we are going to use Wireshark, which is a widely used open-source network protocol analyzer and packet capture tool. It is also known as a network sniffer or packet sniffer. Wireshark allows users to capture and inspect network packets in real-time or from saved capture files. It is available for various operating systems, including Windows, macOS, and Linux. 
@@ -179,13 +179,27 @@ In the images above we can see that there was no response when our Windows 10 ma
 
 
 <p>
-- Step 3:
+- Step 3: Filtering Traffic by DHCP Protocol
+</p>
+
+<p>
+DHCP stands for Dynamic Host Configuration Protocol. It is a network protocol used to automatically assign and manage IP addresses and other network configuration information to devices (known as DHCP clients) on a network. The DHCP protocol simplifies the process of setting up and managing IP addresses, making it easier for both administrators and end-users in a network environment.
 </p>
 <p>
+By automating the process of IP address assignment and configuration, DHCP significantly reduces the administrative overhead of managing IP addresses in a network. It is commonly used in local area networks (LANs), home networks, and larger enterprise networks to efficiently manage IP address allocation and network settings for a large number of devices.
+</p>
+
 <p>
+In order to filter traffic by DHCP protocol, type "dhcp" inside the search bar in Wireshark, or alternatively, use the port number: udp.port==68
+</p>
 <p>
+In PowerShell enter the following command: ipconfig /renew
+</p>
+
 <p>
-<p>
+<img src="https://github.com/mariamcpherson/protocols/assets/139581822/f02c53e1-032d-4f02-9256-521861eb15fa)"/>
+</p>
+
 <p>
 <p>
 <p>
