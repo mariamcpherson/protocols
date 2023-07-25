@@ -251,9 +251,7 @@ In this context, we will be performing the following activities and observing th
 <p>
 - Touch on CNAME records (mapping one name to another)
 </p>
-<p>
-- Discuss Root Hints
-</p>
+
 <p>
 
 A-records: also known as "Address records" or "IPv4 address records," are a type of DNS (Domain Name System) resource record used to map domain names to specific IPv4 addresses. DNS is a system that translates human-readable domain names         (e.g., www.example.com) into IP addresses (e.g., 192.0.2.1) that computers and networks use to identify and communicate with each other on the internet.
@@ -288,11 +286,130 @@ A-records: also known as "Address records" or "IPv4 address records," are a type
       </p>
 
 
+<p>
+So, if we log into the Client Windows 10 VM, and we try to ping a random name, say "mainframe," the following will happen:
+</p>
 
+<p>
+Client check cache, no results.
+</p>
+<p>
+Client checks host file, no results.
+</p>
+<p>
+Client checks DNS server, DNS server in Domain Controller does not find results, and Client returns this message.
+</p>
 
+<p>
+<img src="https://github.com/mariamcpherson/protocols/assets/139581822/0626be55-55bf-4061-b880-a3a5375c996b"/>
+</p>
 
+<p>
+Let's create an A-record for mainframe in the Domain Controller so that Client VM can reach it.
+</p>
+<p>
+1. Sign in to the Domain Controller VM, open Server Manager → Tools → DNS → Forward Lookup Zones, and click on mydomain.com. 
+</p>
 
+<p>
+<img src="https://github.com/mariamcpherson/protocols/assets/139581822/2f5b6b57-a9a3-4737-ac7b-dae39fa687e4"/>
+</p>
+<p>
+To start with, our Domain Controller VM has the following A-records:
+</p>
 
+<p>
+The Domain Controller, DC-1.mydomain.com - 10.0.0.4
+</p>
+
+<p>
+The Client, Client-1.mydomain.com - 10.0.0.5
+</p>
+<p>
+2. Add an A-record for mainframe. Right click → New Host (A or AAA). The enter name: "mainframe", and IP Address 10.0.0.4. Because this is a made up name, for the purposes of this tutorial, we'll assign it the same IP Address as the Domain Controller.
+</p>
+
+<p>
+<img src="https://github.com/mariamcpherson/protocols/assets/139581822/a8694715-8a93-496d-a75c-8ca5fb28f59d"/>
+</p>
+
+<p>
+3. Now that this A-record has been created in the Domain Controller, we can try pinging "mainframe" from the Client machine. Now, we can see the IP Address has been found.
+</p>
+
+<p>
+<img src="https://github.com/mariamcpherson/protocols/assets/139581822/53bf8b99-f0ef-43b9-bf7c-27a5b11ce3fb"/>
+</p>
+
+<p>
+When we enter the command "nslookup mainframe" into the command line, it will return the hostname and IP Address.
+</p>
+
+<p>
+<img src="https://github.com/mariamcpherson/protocols/assets/139581822/caf0f251-a945-4dd6-8950-bf53a318032c)"/>
+</p>
+
+<p>
+Now, we'll perform a local cache activity. For this purpose, we will change the IP Address of mainframe from the Domain Controller. 
+</p>
+
+<p>
+<img src="https://github.com/mariamcpherson/protocols/assets/139581822/b4d417c5-063b-4a17-bcb1-7a2ac0ce0d94"/>
+</p>
+
+<p>
+Now, let's ping mainframe again from the Client VM, and we'll see that it returns the old IP Address 10.0.0.4.
+</p>
+
+<p>
+<img src="https://github.com/mariamcpherson/protocols/assets/139581822/679f196b-8f26-4c7e-afab-b86cf3db215c"/>
+</p>
+
+<p>
+The reason why we're getting the old IP Address is because the Client VM first looks in its DNS cache to see if it has any records of mainframe, and since we pinged it earlier, that old record is stored. 
+</p>
+
+<p>
+In order to reach mainframe, which has changed IP Address, we need to "flush" the DNS cache. For that, run PowerShell as an administrator, and we can show the dns cache (ipconfig /displaydns), and the wipe it (ipconfig /flushdns).
+</p>
+
+<p>
+<img src="https://github.com/mariamcpherson/protocols/assets/139581822/8ef0ed14-244a-48b0-a565-b3a9d4c15f4d"/>
+</p>
+
+<p>
+<img src="![flushdns](https://github.com/mariamcpherson/protocols/assets/139581822/c82aa4c2-6a45-4965-987d-46a644ecdfd0"/>
+</p>
+
+<p>
+Now, we ping mainframe again, and since the cache has been flushed, we'll get the new IP Address we assigned to mainframe (8.8.8.8).
+</p>
+
+<p>
+<img src="https://github.com/mariamcpherson/protocols/assets/139581822/73bb6dcf-780d-43aa-b978-eb44b549a79c"/>
+</p>
+
+<p>
+CNAMES: short for "Canonical Name," is another type of DNS (Domain Name System) resource record used to create an alias or an alternate name for an existing domain or subdomain. Unlike A-records that map a domain directly to an IP address, CNAMEs map a domain to another domain (the canonical name) that already has an associated A-record.
+
+In other words, a CNAME allows you to associate multiple domain names with the same IP address without having to create multiple A-records for each domain. It is often used for creating subdomains or providing alternate names for existing domains, making it easier to manage and update DNS configurations.
+</p>
+
+<p>
+In the Domain Controller VM, open Server Manager → Tools → DNS → Forward Lookup Zones, select mydomain.com. Then, right-click and select New Alias (CNAME). We are going to created a CNAME for google.com, and call it search.
+</p>
+
+<p>
+<img src="https://github.com/mariamcpherson/protocols/assets/139581822/c82aa4c2-6a45-4965-987d-46a644ecdfd0/>
+</p>
+
+<p>
+Now, go to the Client VM and ping "search". It will display google.com
+</p>
+
+<p>
+<img src="https://github.com/mariamcpherson/protocols/assets/139581822/bc6bb323-74cf-46ef-9926-9bd7b6171787"/>
+</p>
 <p>
 <p>
 <p>
@@ -309,6 +426,8 @@ A-records: also known as "Address records" or "IPv4 address records," are a type
 <p>
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
+
+
 <p>
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
 </p>
